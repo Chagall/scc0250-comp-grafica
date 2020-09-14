@@ -1,0 +1,4 @@
+C:/Users/fabio/Desktop/scc0250-comp-grafica/build-Exercicio1-Desktop_x86_windows_msvc2017_pe_32bit-Debug/CMakeFiles/Exercicio1.dir
+C:/Users/fabio/Desktop/scc0250-comp-grafica/build-Exercicio1-Desktop_x86_windows_msvc2017_pe_32bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/fabio/Desktop/scc0250-comp-grafica/build-Exercicio1-Desktop_x86_windows_msvc2017_pe_32bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/fabio/Desktop/scc0250-comp-grafica/build-Exercicio1-Desktop_x86_windows_msvc2017_pe_32bit-Debug/CMakeFiles/Exercicio1_autogen.dir
