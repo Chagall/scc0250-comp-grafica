@@ -41,6 +41,9 @@
          <property name="accessibleName">
           <string/>
          </property>
+         <property name="minimum">
+          <number>-9999</number>
+         </property>
          <property name="maximum">
           <number>9999</number>
          </property>
@@ -50,6 +53,9 @@
         <widget class="QSpinBox" name="y1SpinBox">
          <property name="toolTip">
           <string>y1</string>
+         </property>
+         <property name="minimum">
+          <number>-9999</number>
          </property>
          <property name="maximum">
           <number>9999</number>
@@ -61,6 +67,9 @@
          <property name="toolTip">
           <string>x2</string>
          </property>
+         <property name="minimum">
+          <number>-9999</number>
+         </property>
          <property name="maximum">
           <number>9999</number>
          </property>
@@ -70,6 +79,9 @@
         <widget class="QSpinBox" name="y2SpinBox">
          <property name="toolTip">
           <string>y2</string>
+         </property>
+         <property name="minimum">
+          <number>-9999</number>
          </property>
          <property name="maximum">
           <number>9999</number>

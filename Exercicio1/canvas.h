@@ -5,6 +5,7 @@
 #include <QPainter>
 #include <memory>
 #include <iostream>
+#include <cmath>
 
 namespace Ui {
 class Canvas;
@@ -29,6 +30,8 @@ private:
 
     void paintEvent(QPaintEvent *event);
     void pontoMedio(int x1, int y1, int x2, int y2);
+    void pontoMedioCompleto(int x,int y,int x2, int y2);
+    void plotLine(int x0, int y0, int x1, int y1);
 };
 
 #endif // CANVAS_H
