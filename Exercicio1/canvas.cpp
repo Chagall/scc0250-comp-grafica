@@ -14,7 +14,7 @@ Canvas::~Canvas()
 }
 
 void Canvas::paintEvent(QPaintEvent*) {
-    this->plotLine(this->x1,this->y1,this->x2,this->y2);
+    this->plotLineTotal(this->x1,this->y1,this->x2,this->y2);
 }
 
 void Canvas::setLinePoints(int x1, int y1, int x2, int y2) {
@@ -39,11 +39,11 @@ void Canvas::pontoMedio(int x1, int y1, int x2, int y2) {
 
     std::cout << "dx: " << dx << std::endl;
     std::cout << "dy: " << dy << std::endl;
-    std::cout << "dy/dx: " << dy/dx << std::endl;
 
-    d = 2 * dy - dx; // dStart
-    incE = 2 * dy;
-    incNE = 2 * (dy - dx);
+    if(dx != 0) {
+        std::cout << "abs(dy/dx): " << abs((float)dy/(float)dx) << std::endl;
+    }
+
     x = x1;
     y = y1;
 
@@ -51,7 +51,7 @@ void Canvas::pontoMedio(int x1, int y1, int x2, int y2) {
 
     // Se a reta tem 90º
     if(dx == 0 && dy > 0) {
-        std::cout << "90" << std::endl;
+        std::cout << "90 graus" << std::endl;
         while(y < y2) {
             y = y + 1;
             painter->drawPoint(x,y);
@@ -59,15 +59,15 @@ void Canvas::pontoMedio(int x1, int y1, int x2, int y2) {
     }
     // Se a reta tem 0º
     else if(dy == 0 && dx > 0) {
-        std::cout << "0" << std::endl;
+        std::cout << "0 graus" << std::endl;
         while(x < x2) {
             x = x + 1;
             painter->drawPoint(x,y);
         }
     }
     // Se a reta tem 45º
-    else if((dy/dx) == 1) {
-        std::cout << "45" << std::endl;
+    else if(dx != 0 && ((float)dy/(float)dx) == 1) {
+        std::cout << "45 graus" << std::endl;
         while(x < x2) {
             x = x + 1;
             y = y + 1;
@@ -75,21 +75,50 @@ void Canvas::pontoMedio(int x1, int y1, int x2, int y2) {
         }
     }
     else {
-        while(x < x2) {
-            if(d <= 0) {
-                // Escolha E
-                d = d + incE;
+        // Se o valor absoluto de dy/dx < 1
+        if(abs((float)dy/(float)dx) < 1) {
+            d = 2 * dy - dx; // dStart
+            incE = 2 * dy;
+            incNE = 2 * (dy - dx);
+
+            std::cout << "Inclinacao menor que 1" << std::endl;
+            while(x < x2) {
                 x = x + 1;
+                if(d <= 0) {
+                    // Escolha E
+                    d = d + incE;
+                }
+                else {
+                    // Escolha NE
+                    d = d + incNE;
+                    y = y + 1;
+                }
+                // Desenha o pixel aqui com a função do QT de pintar
+                painter->drawPoint(x,y);
             }
-            else {
-                // Escolha NE
-                d = d + incNE;
-                x = x + 1;
-                y = y + 1;
-            }
-            // Desenha o pixel aqui com a função do QT de pintar
-            painter->drawPoint(x,y);
         }
+        else {
+            d = 2 * dx - dy; // dStart
+            incE = 2 * dx;
+            incNE = 2 * (dx - dy);
+
+            std::cout << "Inclinação maior que 1" << std::endl;
+            while(y < y2) {
+                y = y + 1;
+                if(d <= 0) {
+                    // Escolha E
+                    d = d + incE;
+                }
+                else {
+                    d = d + incNE;
+                    x = x + 1;
+                }
+                // Desenha o pixel aqui com a função do QT de pintar
+                painter->drawPoint(x,y);
+            }
+        }
+
+
     }
 }
 
@@ -164,6 +193,93 @@ void Canvas::plotLine(int x0, int y0, int x1, int y1) {
             /* e_xy+e_y < 0 */
             err += dx;
             y0 += sy;
+        }
+    }
+}
+
+void Canvas::plotLineLow(int x0, int y0, int x1, int y1) {
+    auto painter = std::make_unique<QPainter>(this);
+    int dx = x1 - x0;
+    int dy = y1 - y0;
+    int yi = 1;
+
+    if (dy < 0) {
+        yi = -1;
+        dy = -dy;
+    }
+
+    int D = (2 * dy) - dx;
+    int incE = 2 * dy;
+    int incNE = (2 * (dy - dx));
+
+    int y = y0;
+    int x = x0;
+
+    painter->drawPoint(x,y);
+
+    while(x < x1) {
+        x = x + 1;
+
+        if(D > 0) {
+            y = y + yi;
+            D = D + incNE;
+        }
+        else {
+            D = D + incE;
+        }
+        painter->drawPoint(x,y);
+    }
+}
+
+void Canvas::plotLineHigh(int x0, int y0, int x1, int y1) {
+    auto painter = std::make_unique<QPainter>(this);
+    int dx = x1 - x0;
+    int dy = y1 - y0;
+    int xi = 1;
+
+    if (dx < 0) {
+        xi = -1;
+        dx = -dx;
+    }
+
+    int D = (2 * dx) - dy;
+    int incE = 2 * dx;
+    int incNE = (2 * (dx - dy));
+
+    int x = x0;
+    int y = y0;
+
+    painter->drawPoint(x,y);
+
+    while(y < y1) {
+        y = y + 1;
+
+        if (D > 0) {
+            x = x + xi;
+            D = D + incNE;
+        }
+        else {
+            D = D + incE;
+        }
+        painter->drawPoint(x,y);
+    }
+}
+
+void Canvas::plotLineTotal(int x0, int y0, int x1, int y1) {
+    if (abs(y1 - y0) < abs(x1 - x0)) {
+        if (x0 > x1) {
+            plotLineLow(x1, y1, x0, y0);
+        }
+        else {
+            plotLineLow(x0, y0, x1, y1);
+        }
+    }
+    else {
+        if (y0 > y1) {
+            plotLineHigh(x1, y1, x0, y0);
+        }
+        else {
+            plotLineHigh(x0, y0, x1, y1);
         }
     }
 }
