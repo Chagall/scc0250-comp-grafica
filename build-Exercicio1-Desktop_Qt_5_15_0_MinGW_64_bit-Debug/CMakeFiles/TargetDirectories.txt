@@ -1,4 +1,0 @@
-C:/Users/fabio/Desktop/scc0250-comp-grafica/build-Exercicio1-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/CMakeFiles/Exercicio1.dir
-C:/Users/fabio/Desktop/scc0250-comp-grafica/build-Exercicio1-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
-C:/Users/fabio/Desktop/scc0250-comp-grafica/build-Exercicio1-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
-C:/Users/fabio/Desktop/scc0250-comp-grafica/build-Exercicio1-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/CMakeFiles/Exercicio1_autogen.dir
