@@ -16,9 +16,23 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="DrawCircleQPushButton">
       <property name="text">
-       <string>PushButton</string>
+       <string>Desenhar Círculo - Ponto Médio</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="DrawCircleCP_QPushButton">
+      <property name="text">
+       <string>Desenhar Círculo - Coordenadas Polares</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="DrawCircleAP_QPushButton">
+      <property name="text">
+       <string>Desenhar Círculo - Aproximação Poligonal</string>
       </property>
      </widget>
     </item>

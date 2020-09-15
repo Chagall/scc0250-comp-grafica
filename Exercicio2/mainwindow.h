@@ -15,6 +15,13 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_DrawCircleQPushButton_clicked();
+
+    void on_DrawCircleAP_QPushButton_clicked();
+
+    void on_DrawCircleCP_QPushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
