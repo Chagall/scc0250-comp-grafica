@@ -29,13 +29,9 @@ private:
     int xCenter = 0, yCenter = 0;
 
     void paintEvent(QPaintEvent *event);
-    void pontoMedio(int x1, int y1, int x2, int y2);
-    void pontoMedioCompleto(int x,int y,int x2, int y2);
-    void plotLine(int x0, int y0, int x1, int y1);
-
     void plotLineLow(int x0, int y0, int x1, int y1);
     void plotLineHigh(int x0, int y0, int x1, int y1);
-    void plotLineTotal(int x0, int y0, int x1, int y1);
+    void pontoMedioCompleto(int x0, int y0, int x1, int y1);
 };
 
 #endif // CANVAS_H
