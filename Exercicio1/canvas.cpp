@@ -14,7 +14,7 @@ Canvas::~Canvas()
 }
 
 void Canvas::paintEvent(QPaintEvent*) {
-    this->pontoMedioCompleto(this->x1,this->y1,this->x2,this->y2);
+    this->midPointAlgorithm(this->x1,this->y1,this->x2,this->y2);
 }
 
 void Canvas::setLinePoints(int x1, int y1, int x2, int y2) {
@@ -98,7 +98,7 @@ void Canvas::plotLineHigh(int x0, int y0, int x1, int y1) {
     }
 }
 
-void Canvas::pontoMedioCompleto(int x0, int y0, int x1, int y1) {
+void Canvas::midPointAlgorithm(int x0, int y0, int x1, int y1) {
     if (abs(y1 - y0) < abs(x1 - x0)) {
         if (x0 > x1) {
             plotLineLow(x1, y1, x0, y0);

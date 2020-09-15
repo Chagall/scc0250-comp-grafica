@@ -31,7 +31,7 @@ private:
     void paintEvent(QPaintEvent *event);
     void plotLineLow(int x0, int y0, int x1, int y1);
     void plotLineHigh(int x0, int y0, int x1, int y1);
-    void pontoMedioCompleto(int x0, int y0, int x1, int y1);
+    void midPointAlgorithm(int x0, int y0, int x1, int y1);
 };
 
 #endif // CANVAS_H
