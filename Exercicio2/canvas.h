@@ -8,6 +8,8 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <chrono>
+using namespace std::chrono;
 
 namespace Ui {
 class Canvas;
@@ -21,13 +23,14 @@ public:
     explicit Canvas(QWidget *parent = nullptr);
     ~Canvas();
     int option = 0;
+    int numOfExecutions = 0;
+    int numOfPoints = 0;
+    int radius = 0;
     void setCenter(int xCenter, int yCenter);
 
 private:
     Ui::Canvas *ui;
     int xCenter = 0, yCenter = 0;
-    int numOfPoints = 100;
-
     void paintEvent(QPaintEvent *event);
     void circlePoints(int x, int y);
     void midPointCircle(int r);

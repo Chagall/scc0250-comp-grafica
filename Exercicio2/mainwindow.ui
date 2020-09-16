@@ -37,6 +37,60 @@
      </widget>
     </item>
     <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="ExecutionsQLabel">
+        <property name="text">
+         <string>Número de execuções</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="ExecutionsSpinBox">
+        <property name="maximum">
+         <number>999</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Número de pontos</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="PointsSpinBox">
+        <property name="maximum">
+         <number>999</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Tamanho do raio</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="RadiusSpinBox">
+        <property name="maximum">
+         <number>999</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
      <widget class="Canvas" name="CanvasWidget" native="true"/>
     </item>
    </layout>

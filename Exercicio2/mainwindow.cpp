@@ -20,6 +20,9 @@ void MainWindow::on_DrawCircleQPushButton_clicked()
     int centerY = ui->CanvasWidget->size().height()/2;
     ui->CanvasWidget->setCenter(centerX, centerY);
     ui->CanvasWidget->option = 1;
+    ui->CanvasWidget->numOfExecutions = ui->ExecutionsSpinBox->value();
+    ui->CanvasWidget->radius = ui->RadiusSpinBox->value();
+    ui->CanvasWidget->numOfPoints = ui->PointsSpinBox->value();
     ui->CanvasWidget->repaint();
 }
 
@@ -29,6 +32,9 @@ void MainWindow::on_DrawCircleCP_QPushButton_clicked()
     int centerY = ui->CanvasWidget->size().height()/2;
     ui->CanvasWidget->setCenter(centerX, centerY);
     ui->CanvasWidget->option = 2;
+    ui->CanvasWidget->numOfExecutions = ui->ExecutionsSpinBox->value();
+    ui->CanvasWidget->radius = ui->RadiusSpinBox->value();
+    ui->CanvasWidget->numOfPoints = ui->PointsSpinBox->value();
     ui->CanvasWidget->repaint();
 }
 
@@ -38,6 +44,9 @@ void MainWindow::on_DrawCircleAP_QPushButton_clicked()
     int centerY = ui->CanvasWidget->size().height()/2;
     ui->CanvasWidget->setCenter(centerX, centerY);
     ui->CanvasWidget->option = 3;
+    ui->CanvasWidget->numOfExecutions = ui->ExecutionsSpinBox->value();
+    ui->CanvasWidget->radius = ui->RadiusSpinBox->value();
+    ui->CanvasWidget->numOfPoints = ui->PointsSpinBox->value();
     ui->CanvasWidget->repaint();
 
 }
